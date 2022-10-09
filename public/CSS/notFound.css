@@ -1,0 +1,66 @@
+body{
+  background: black;
+}
+
+.container{
+  width: 100%;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  background: black;
+}
+.not-found h1{
+  font-size: 160px;
+  font-weight: bolder;
+  padding: 0;
+  position: relative;
+  /* background:red; */
+}
+
+/* This is the span tag that has Not found text */
+.notFound{
+  font-size: 30px !important;
+  text-align: center;
+}
+
+
+.not-found h1 span{
+  position: absolute;
+  font-size: 200px;
+  top: -10%;
+  transition-property: all;
+  transition-duration: 300ms;
+  transition-delay: 100ms;
+  transition-timing-function: ease-in-out;
+}
+.notFound{
+  color: white;
+}
+.not-found h1 #firstFour{
+  color: rgba(95,147,142,1);
+  left: -25%;
+}
+.not-found h1 #secondFour{
+  color: rgba(95,147,142,1);
+  left: 63%;
+}
+
+.links{
+  width: 100%;
+  display: flex;
+  flex-direction:column;
+  justify-content: center;
+  align-items: center;
+}
+
+.links p{
+  color: white;
+}
+
+a{
+  color: white;
+  text-transform: capitalize;
+  color: var(--brandColor);
+  text-decoration: underline;
+  display: block;
+}

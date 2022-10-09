@@ -1,0 +1,25 @@
+<main class="navbar">
+  <section class="logo">
+    <img src="/Image/logo_2.png" alt="Logo of the brand">
+    <div>
+    <div class="togller">
+      <h1>&#9776;</h1>
+      <input type="checkbox" class="checkbox" id="checkbox">
+        <label for="checkbox" class="label">
+          <h5>🌙</h5>
+          <h5>☀️</h5>
+          <div class='ball'>
+        </label>
+        </div>
+    </div>
+  </section>
+  <section class="nav-links">
+    <a href="/">Home</a>
+    <a href="/all-blog-post/">Blogposts</a>
+    <% if(currentUser){ %>
+      <a class="btn-smooth-transform" href="/user/logout">Logout</a>
+    <% } else{ %>
+      <p id="loginLink" class="btn-smooth-transform" href="#">Login</p>
+    <% } %>
+  </section>
+</main>

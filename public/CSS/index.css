@@ -1,0 +1,81 @@
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai+Looped&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=IBM+Plex+Sans+Thai+Looped&display=swap');
+  *{
+    margin: 0;
+    padding:0;
+    scroll-behavior: smooth;
+  }
+  body{
+    font-family: 'IBM Plex Sans Thai Looped', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* 9A0648 */
+  :root{
+    --brandColor: #9A0648;
+    --bgColor: white;
+    --textColor: black;
+  }
+
+  body{
+    background: var(--bgColor);
+    color: var(--textColor);
+  }
+
+  a{
+    font-size: 17px;
+  }
+
+  svg{
+    fill: var(--brandColor);
+  }
+
+  input{
+    font-size: 16px;
+  }
+
+  p{
+    font-size: 16px;
+    line-height: 25px;
+  }
+
+  ul li,ol li{
+    font-size: 14px;
+  }
+
+  a{
+    color: var(--texColor);
+    text-decoration: none;
+  }
+
+  hr{
+    color: var(--brandColor);
+  }
+
+  ::selection{
+    background: var(--brandColor);
+    color: white;
+  }
+
+  h1{
+    font-size: 20px;
+  }
+
+
+  /* Universal classes */
+  .btn-smooth-transform{
+    background: none;
+    text-decoration: none;
+    border: 1px solid var(--brandColor);
+    padding: 5px 24px;
+    color: var(--textColor);
+  }
+
+  .btn-smooth-transform:hover{
+    text-decoration: none !important;
+    background: var(--brandColor);
+    color: white !important;
+  }

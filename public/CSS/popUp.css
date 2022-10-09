@@ -1,0 +1,86 @@
+
+  /* Desigining the pop up container */
+  .popUpDiv{
+    width: 100%;
+    height: 100vh;
+    /* background: red; */
+    position: fixed;
+    top: 80px;
+    left: 0%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    z-index: 1;
+  }
+
+  .displayPopUp{
+    display: none !important;
+  }
+
+  .popUpDiv div{
+    flex-basis: 30%;
+    /* min-height: ; */
+    background: var(--textColor);
+    padding: 10px;
+  }
+
+  .closeSection{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .closeSection h1{
+    color: var(--brandColor);
+  }
+
+  .closeSection *{
+    padding: 5px 3px;
+  }
+
+  .closeSection svg{
+    width: 20px;
+    height: 20px;
+    fill: var(--bgColor);
+  }
+
+  .google-container{
+    /* background: rgba(130,116,212,1) !important; */
+    padding: 50px;
+  }
+
+  .google-container button{
+    appearance: none;
+    border: none;
+    padding: 20px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+  }
+
+  .google-container button *{
+    display: block;
+    margin: auto;
+  }
+
+  @media screen and (max-width: 800px)
+  {
+    .popUpDiv div{
+      flex-basis: 50%;
+    }
+  }
+
+  @media screen and (max-width: 600px)
+  {
+    .popUpDiv div{
+      flex-basis: 60%;
+    }
+  }
+
+  @media screen and (max-width: 400px)
+  {
+    .popUpDiv div{
+      flex-basis: 80%;
+    }
+  }

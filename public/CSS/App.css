@@ -1,0 +1,238 @@
+  /* Hero section */
+  .hero{
+    display: flex;
+    height: auto;
+    min-height: 90vh;
+    background: url("/Image/Hero-Image2.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
+
+  .hero .news-letter{
+    /* display: flex;
+    flex-direction: column; */
+    width: 100%;
+    /* background: red; */
+    /* display: grid; */
+    /* grid-template-columns: 0.8fr; */
+    margin: auto;
+    /* align-items: center;
+    justify-content: center; */
+  }
+
+  .hero .news-letter h1{
+    font-size: 55px;
+    color: white;
+    flex-basis: 50%;
+    margin-left: 50px;
+    /* align-self: flex-end; */
+  }
+  .news-letter form{
+    margin-left: 50px;
+    width: 65%;
+    /* background: red; */
+  }
+
+  .hero .news-letter form input::placeholder{
+    color: var(--textColor);
+    margin-left: 10px;
+  }
+
+  .field-container{
+    display: grid;
+    width: 100%;
+    grid-template-columns: 2fr 2fr;
+    grid-template-rows: 1fr;
+  }
+
+  #lastname,#firstname{
+    width: 90%;
+  }
+
+  #email{
+    width: 95%;
+    grid-area: 2/1/2/4;
+  }
+
+  .hero .news-letter form input{
+    color: white;
+    /* width: 100%; */
+  }
+
+  .hero .news-letter form input::placeholder{
+    color: white;
+  }
+
+  .invalid-text-hero,.failed-subscribe-hero{
+    color: red;
+    display: none;
+  }
+
+  .success-subscribe-hero{
+    color: green;
+    display: none;
+  }
+
+  #subscribeForm button,#subscribeForm-footer button{
+    position: relative;
+    padding: 15px 30px;
+  }
+
+  .more-link{
+    color: var(--brandColor);
+    text-decoration: none;
+    width: 100%;
+    /* background: red; */
+    display: flex;
+    justify-content: center;
+  }
+  @keyframes animate{
+    from{
+      transform: rotate(0deg);
+    }
+    to{
+      transform: rotate(360deg);
+    }
+  }
+
+  .animate-div{
+    animation-name: animate;
+    animation-duration: 700ms;
+    animation-iteration-count: infinite;
+    animation-fill-mode: backwards;
+    transform-origin: center;
+    animation-timing-function: linear;
+    /* animation */
+  }
+
+  #subscriberBtn-hero div,#subscriberBtn-hero-footer div{
+    width: 15px;
+    height: 15px;
+    /* background: rgba(154, 6, 72,0.5); */
+    position: absolute;
+    top: 4px;
+    left: 6px;
+    border-top: 3px solid rgba(215,209,223,.3);
+    border-bottom: 3px solid rgba(215,209,223,.3);
+    border-right: 3px solid rgba(215,209,223,.3);
+    border-left: 3px solid rgba(215,209,223,1);
+    border-radius: 50%;
+    z-index: 2;
+    display: none;
+  }
+
+  @media screen and (max-width: 1000px)
+  {
+    .hero{
+      min-height: 80vh;
+    }
+    .hero .news-letter h1{
+      font-size: 45px;
+    }
+
+    .hero .news-letter form{
+      width: 65%;
+    }
+
+  @media screen and (max-width: 900px)
+  {
+    .hero{
+      /* min-height: 70vh; */
+    }
+  }
+
+  @media screen and (max-width: 800px)
+  {
+    .hero{
+      min-height: 60vh;
+    }
+    .hero .news-letter h1{
+      font-size: 40px;
+    }
+    .hero .news-letter form{
+      width: 75%;
+    }
+  }
+
+  @media screen and (max-width: 750px)
+  {
+    .hero{
+      min-height: 40vh;
+    }
+    .hero .news-letter h1{
+      font-size: 30px;
+      margin-left: 30px;
+    }
+    .hero .news-letter{
+      flex-basis: 90%;
+    }
+    .hero .news-letter form{
+      width: 85%;
+      margin-left: 30px;
+    }
+  }
+
+  @media screen and (max-width: 650px)
+  {
+    .hero .news-letter h1,.hero .news-letter form{
+      margin-left: 10px;
+    }
+    .hero .news-letter form{
+      width: 95%;
+    }
+    .field-container{
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media screen and (max-width: 600px)
+  {
+    .field-container{
+      grid-template-columns: 0.5fr 0.5fr;
+    }
+  }
+
+  @media screen and (max-width: 500px)
+  {
+    .hero{
+      min-height: 35vh;
+    }
+    .hero .news-letter h1{
+      font-size: 25px;
+      margin-left: 0px !important;
+    }
+    .hero .news-letter{
+      flex-basis: 96%;
+    }
+  }
+
+  @media screen and (max-width: 550px)
+  {
+    .hero .news-letter h1,.hero .news-letter form{
+      margin-left: 5px;
+    }
+    .field-container{
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  @media screen and (max-width: 500px)
+  {
+    .hero .news-letter h1,.hero .news-letter form{
+      margin-left: 2px;
+    }
+    #email{
+      width: 90%;
+    }
+  }
+
+  @media screen and (max-width: 400px)
+  {
+    .hero{
+      min-height: 300px;
+    }
+    .hero .news-letter h1{
+      font-size: 23px;
+    }
+  }

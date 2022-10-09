@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Create new Blog</title>
+  <link rel="stylesheet" href="/CSS/index.css">
+  <link rel="stylesheet" href="/CSS/App.css">
+  <link rel="stylesheet" href="/CSS/navbar.css">
+  <link rel="stylesheet" href="/CSS/newBlog.css">
+  <script src="https://cdn.tiny.cloud/1/3o1qweuhzrrme1fqos5oqg14hg1ehf05j2pa5w71qiv3adfn/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
+</head>
+<body>
+  <%- include('./partials/navbar')%>
+
+  <main class="new-blog-form-holder">
+    <main class="form-container">
+      <form action="/new/blog" method="POST">
+          <section class="field">
+            <label for="title">Title</label>
+            <input id="title" type="text" name="title" placeholder="Enter title" required>
+          </section>
+
+          <section class="field">
+            <label for="category">Category</label>
+            <select class="" name="category">
+              <option value="HTML">HTML</option>
+              <option value="CSS">CSS</option>
+              <option value="Javascript">Javascript</option>
+              <option value="React">React</option>
+              <option value="Bootstrap">Bootstrap</option>
+            </select>
+          </section>
+
+          <section class="field">
+            <label for="image">Image URL</label>
+            <input id="image" type="text" name="image" placeholder="Enter image URL">
+          </section>
+
+          <section class="field">
+            <label for="description">Blog description</label>
+            <input id="description" type="text" name="description" autocomplete="off" placeholder="Enter blog description" required>
+          </section>
+
+          <section style="" class="field">
+            <textarea id="myTextarea" name="blogData" rows="8" cols="80" placeholder="Enter Blog content" autofocus>Write your Content here</textarea>
+          </section>
+
+          <button type="submit" class="form-button">Post</button>
+      </form>
+    </main>
+  </main>
+
+  <%- include('./partials/footer')%>
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+  <script src="/JS/index.js"></script>
+  <script src="/JS/tiny.js"></script>
+  <script src="/JS/footerSubscribe.js"></script>
+</body>
+</html>

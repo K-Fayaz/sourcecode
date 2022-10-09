@@ -1,0 +1,208 @@
+  .blog-comments{
+    width: 100%;
+    height: auto;
+    margin-top:20px;
+    overflow: hidden;
+  }
+
+  .heighToggle{
+    height: 40px;
+  }
+
+  .comment-heading{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background:var(--bgColor);
+    height: 35px;
+    align-self: center;
+    padding: 0px 7px;
+    box-shadow: -4px 7px 20px -12px var(--brandColor);
+  }
+
+  .comment-form{
+    /* background: red; */
+  }
+
+  .comment-form form{
+    width: 90%;
+    padding: 10px;
+  }
+
+  .comment-form a{
+    color: var(--brandColor);
+    text-decoration: underline;
+  }
+
+  .comment-form form .in-valid-Comment , .validateReplyText{
+    color:red !important;
+    display: none;
+  }
+
+  .userName-paragraph ,.replyUserName{
+    border-bottom: 1px solid var(--brandColor);
+  }
+
+  .field p span{
+    color: var(--brandColor);
+    padding-right: 3px;
+  }
+
+  .field p,.field textarea{
+    width: 100%;
+    margin:10px 0px;
+    padding-left: 10px;
+  }
+  .field textarea{
+    border: none;
+    outline: none;
+    border: 1px solid var(--brandColor);
+    background: none;
+    color: var(--textColor);
+    padding-top: 10px;
+    width: 100% !important;
+    font-size: 16px;
+  }
+
+  .comment-form form button,.reply-form form button{
+    background: var(--brandColor);
+    border: none;
+    padding: 8px 24px;
+    color: white;
+    float: right;
+    cursor: pointer;
+  }
+
+  .user-comments{
+    /* background: lightblue; */
+    margin: 30px 0px;
+    margin-left: 10px;
+  }
+
+  .single-comment{
+    /* background: lightgreen; */
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    border: 1px solid var(--brandColor);
+    margin-top: 10px;
+    /* height: 100px; */
+  }
+
+  .single-comment *{
+    margin: 3px 0;
+  }
+
+  /* comment-relpy */
+
+  .comment-main-sec,.links-comments{
+    display: flex;
+    flex-basis: 100%;
+    justify-content: space-between;
+  }
+
+  .comment-main-sec h3,.reply-main-sec h3{
+    font-size: 16px;
+  }
+  .comment-main-sec h3 span , .reply-main-sec h3{
+    color: var(--brandColor);
+    padding: 0px 2px;
+  }
+
+  .button-and-date , .reply-button-and-date{
+    flex-basis: 22%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .button-and-date p,.reply-button-and-date p{
+    color: grey;
+    font-style: italic;
+    font-size: 15px !important;
+  }
+  .button-and-date button , .reply-button-and-date button{
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  .links-comments *{
+    color: var(--brandColor);
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  .comment-relpy{
+    padding: 10px;
+    border: 1px solid var(--brandColor);
+    width: 90%;
+    margin-left: 30px;
+    margin-top: 20px;
+    /* background: red;/\ */
+  }
+
+  .reply-main-sec{
+    display: flex;
+    flex-basis: 100%;
+    justify-content: space-between;
+    margin-bottom: 5px;
+  }
+
+  .comment-relpy p{
+    margin-bottom: 3px;
+  }
+
+  .reply-form {
+    width: 90%;
+    margin-top: 10px;
+  }
+  .reply-form form{
+    width: 100%;
+    margin-left: 30px;
+  }
+  .reply-form form .field textarea{
+    width: 100%;
+  }
+
+  .all-replies{
+    display: none;
+  }
+
+  .ReplyForm{
+    display: none;
+  }
+
+  @media screen and (max-width: 950px)
+  {
+    .comment-relpy{
+      margin-left: 10px;
+    }
+  }
+
+  @media screen and (max-width: 500px)
+  {
+    .reply-form form{
+      margin-left: 10px;
+    }
+    .button-and-date p,.reply-button-and-date p{
+      display: none;
+    }
+
+    .button-and-date , .reply-button-and-date{
+      justify-content: flex-end;
+    }
+
+  }
+
+  @media screen and (max-width: 1200px)
+  {
+    .button-and-date,.reply-button-and-date{
+      flex-basis: 30%;
+    }
+  }
+
+  @media screen and (max-width: 940px)
+  {
+    .button-and-date,.reply-button-and-date{
+      flex-basis: 35%;
+    }
+  }

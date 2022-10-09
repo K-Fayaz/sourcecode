@@ -1,0 +1,203 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><%= blog.title %></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@animxyz/core">
+    <link rel="stylesheet" href="/CSS/index.css">
+    <link rel="stylesheet" href="/CSS/App.css">
+    <link rel="stylesheet" href="/CSS/navbar.css">
+    <link rel="stylesheet" href="/CSS/comments.css">
+    <link rel="stylesheet" href="/CSS/jssocials.css">
+    <link rel="stylesheet" href="/CSS/jssocials-theme-flat.css">
+    <link rel="stylesheet" href="/CSS/blogpage.css">
+    <link rel="stylesheet" href="/CSS/popUp.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/3.1.0/fetch.js"></script>
+  </head>
+  <body>
+    <script>
+      var likeId = "<%= blog._id %>";
+    </script>
+    <%- include('./partials/navbar')%>
+    <div class="popUpDiv displayPopUp" id="popUp-Container">
+      <div>
+        <section class="closeSection">
+          <h1>Close</h1>
+          <svg id="closeBtn" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-octagon" viewBox="0 0 16 16">
+            <path d="M4.54.146A.5.5 0 0 1 4.893 0h6.214a.5.5 0 0 1 .353.146l4.394 4.394a.5.5 0 0 1 .146.353v6.214a.5.5 0 0 1-.146.353l-4.394 4.394a.5.5 0 0 1-.353.146H4.893a.5.5 0 0 1-.353-.146L.146 11.46A.5.5 0 0 1 0 11.107V4.893a.5.5 0 0 1 .146-.353L4.54.146zM5.1 1 1 5.1v5.8L5.1 15h5.8l4.1-4.1V5.1L10.9 1H5.1z"/>
+            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+          </svg>
+        </section>
+        <div class="google-container">
+          <button><a href="/auth/google/login?id=<%= blog._id %>"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-google" viewBox="0 0 16 16">
+            <path d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z"/>
+          </svg>Login with Google</a></button>
+        </div>
+      </div>
+    </div>
+    <main class="page-data">
+      <section class="media-and-buttons">
+        <div id="icons-container" class="icons-container">
+          <section class="claps">
+            <p id="clap-counter" class="clap-counter">+1</p>
+            <button id="LikesBut"><svg id="clap--icon" xmlns="http://www.w3.org/2000/svg" viewBox="-549 338 100.1 125">
+            <path d="M-471.2 366.8c1.2 1.1 1.9 2.6 2.3 4.1.4-.3.8-.5 1.2-.7 1-1.9.7-4.3-1-5.9-2-1.9-5.2-1.9-7.2.1l-.2.2c1.8.1 3.6.9 4.9 2.2zm-28.8 14c.4.9.7 1.9.8 3.1l16.5-16.9c.6-.6 1.4-1.1 2.1-1.5 1-1.9.7-4.4-.9-6-2-1.9-5.2-1.9-7.2.1l-15.5 15.9c2.3 2.2 3.1 3 4.2 5.3zm-38.9 39.7c-.1-8.9 3.2-17.2 9.4-23.6l18.6-19c.7-2 .5-4.1-.1-5.3-.8-1.8-1.3-2.3-3.6-4.5l-20.9 21.4c-10.6 10.8-11.2 27.6-2.3 39.3-.6-2.6-1-5.4-1.1-8.3z"/>
+            <path d="M-527.2 399.1l20.9-21.4c2.2 2.2 2.7 2.6 3.5 4.5.8 1.8 1 5.4-1.6 8l-11.8 12.2c-.5.5-.4 1.2 0 1.7.5.5 1.2.5 1.7 0l34-35c1.9-2 5.2-2.1 7.2-.1 2 1.9 2 5.2.1 7.2l-24.7 25.3c-.5.5-.4 1.2 0 1.7.5.5 1.2.5 1.7 0l28.5-29.3c2-2 5.2-2 7.1-.1 2 1.9 2 5.1.1 7.1l-28.5 29.3c-.5.5-.4 1.2 0 1.7.5.5 1.2.4 1.7 0l24.7-25.3c1.9-2 5.1-2.1 7.1-.1 2 1.9 2 5.2.1 7.2l-24.7 25.3c-.5.5-.4 1.2 0 1.7.5.5 1.2.5 1.7 0l14.6-15c2-2 5.2-2 7.2-.1 2 2 2.1 5.2.1 7.2l-27.6 28.4c-11.6 11.9-30.6 12.2-42.5.6-12-11.7-12.2-30.8-.6-42.7m18.1-48.4l-.7 4.9-2.2-4.4m7.6.9l-3.7 3.4 1.2-4.8m5.5 4.7l-4.8 1.6 3.1-3.9"/>
+          </svg></button>
+            <p><span id="span-likes"><%= blog.likes %></span> <span class="span-claps">Claps</span></p>
+          </section>
+          <section class="comments-icon">
+            <a href="#commentsContainer"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-left-heart-fill" viewBox="0 0 16 16">
+              <path d="M2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2Zm6 3.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z"/>
+            </svg></a>
+
+          </section>
+          <section id="share-icons" class="share-icons"></section>
+        </div>
+      </section>
+      <section class="post-data">
+        <div class="post-main-sec">
+          <h1><%= blog.title %></h1>
+          <% if(blog.image){ %>
+            <img src="<%= blog.image %>" alt="<%= blog._id %>">
+          <% } %>
+        </div>
+        <div class="blog-brief">
+          <p><%= blog.description %></p>
+          <br></br>
+          <%- blog.body %>
+        </div>
+        <div id="commentsContainer" class="blog-comments heighToggle">
+          <div id="commentHead" class="comment-heading">
+            <h1>comments</h1>
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-arrow-down-short" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5A.5.5 0 0 1 8 4z"/>
+            </svg></p>
+          </div>
+          <div id="commentForm" class="comment-form">
+            <% if(currentUser){ %>
+            <form id="Form" action="/blogpost/comment/<%= blog._id %>/new/<%= currentUser._id %>" method="POST">
+              <div class="field">
+                <label for="username">Username</label>
+                <p class="userName-paragraph"><span>@</span><%= currentUser.userName %></p>
+              </div>
+              <div class="field">
+                <label for="commentField">Comment</label>
+                <textarea name="comment" id="commentField" cols="30" rows="6"></textarea>
+                <p class="in-valid-Comment">A valid comment is not empty!</p>
+              </div>
+              <button>Submit</button>
+            </form>
+            <% } %>
+            <% if(!currentUser){ %>
+              <p id="popUp">Login to reply?</p>
+            <% } %>
+          </div>
+          <div class="user-comments">
+            <% blog.comments.forEach((data,index)=>{ %>
+            <div class="single-comment" id="CommentSec-<%= index %>">
+              <section class="comment-main-sec">
+                <h3><span>@</span><%= data.owner.userName %></h3>
+                <div class="button-and-date">
+                  <p><%= data.date.toString().slice(0,15) %></p>
+                  <% if(currentUser && data.owner.equals(currentUser._id)){ %>
+                    <button onclick="deleteComment('<%= blog._id %>','<%= data._id %>','<%= index %>','<%= currentUser._id %>')"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                      <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                    </svg></button>
+                  <% } %>
+                </div>
+              </section>
+              <p><%= data.comment %></p>
+              <div class="links-comments">
+                <% if(currentUser){ %>
+                  <p class="reply-form-link" onclick = "toggle(<%= index %>)">Reply to this comment</p>
+                <% } %>
+                <% if(!currentUser){ %>
+                    <!-- <a class="no-user" href="/login">Login to reply</a> -->
+                    <p id="loginPOPUP">Login to reply</p>
+                <% } %>
+                  <% if(data.reply.length){ %>
+                    <p class="replies-link" onclick="repltToggle(<%= index %>)">replies</p>
+                  <% } %>
+              </div>
+              <div id="reply-<%= index %>" class="all-replies">
+                <% data.reply.forEach((replyComment,index)=>{ %>
+                <div id="reply-div-<%= index %>" class="comment-relpy">
+                  <section class="reply-main-sec">
+                    <h3><span>@</span><%= replyComment.author.userName %></h3>
+                    <div class="reply-button-and-date">
+                      <p><%= replyComment.date.toString().slice(0,15) %></p>
+                      <% if(currentUser && replyComment.author.equals(currentUser._id)){ %>
+                        <button onclick="delteReply('<%= data._id %>','<%= index %>','<%= replyComment._id %>')"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                          <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                        </svg></button>
+                      <% } %>
+                    </div>
+                  </section>
+                  <p><%= replyComment.reply %></p>
+                </div>
+                <% }) %>
+              </div>
+              <% if(currentUser){ %>
+                <div id="replyForm" class="reply-form">
+                  <form id="Form-<%= index %>" class="ReplyForm" action="/blog/<%= blog._id %>/comment/<%= data._id %>/reply-data/<%= currentUser._id %>" method="POST">
+                    <div class="field">
+                      <label for="username">Username</label>
+                      <p class="replyUserName"><span>@</span><%= currentUser.userName %></p>
+                    </div>
+                    <div class="field">
+                      <label for="commentFieldReply">Reply</label>
+                      <textarea name="replyComment" id="commentFieldReply" cols="25" rows="6"></textarea>
+                      <p class="validateReplyText">Comment cannot be empty</p>
+                    </div>
+                    <button>Submit</button>
+                  </form>
+                </div>
+              <% } %>
+            </div>
+            <% }) %>
+          </div>
+        </div>
+      </section>
+      <section class="author-info">
+        <div class="author-info-container">
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+              <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+              <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+            </svg></p>
+            <div class="author">
+              <h3>Fayaz</h3>
+              <section class="author-media">
+                <a target="blank" href="https://www.instagram.com/__fayaz_3000/"><svg class="insta" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+                  <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+                </svg></a>
+
+                <a target="blank" href="https://www.linkedin.com/in/fayaz-k-769b68225/"><svg class="likedIN" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
+                  <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+                </svg></a>
+              </section>
+            </div>
+        </div>
+        <div class="author-description">
+          <p> <a target="blank" href="https://www.mongodb.com/mern-stack"><b>MERN</b></a> stack Developer</p>
+          <p>Tech Enthusiast</p>
+        </div>
+      </section></main>
+    <%- include('./partials/footer')%>
+    <script src="https://kit.fontawesome.com/0022730b86.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="/JS/jssocials.min.js" charset="utf-8"></script>
+    <script src="/JS/index.js"></script>
+    <script src="/JS/Likes.js"></script>
+    <script src="/JS/comments.js"></script>
+    <script src="/JS/index.js"></script>
+    <script src="/JS/footerSubscribe.js"></script>
+
+    <% if(currentUser){ %>
+      <!-- Validate Email letter and social share buttons -->
+      <script src="/JS/validate.js"></script>
+    <% } %>
+  </body>
+  </html>

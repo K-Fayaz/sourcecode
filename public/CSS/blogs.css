@@ -1,0 +1,217 @@
+
+  /* apply animations to display the flash message on delete whether deleted or not ! */
+  @keyframes  message{
+    100%{
+      top:0%
+    }
+  }
+
+  #display_message{
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    background: rgba(187,48,17,.7);
+    top: -20%;
+  }
+
+  #display_message p{
+    text-align:center;
+    padding: 2px 0px;
+  }
+
+  .message{
+    animation-name:message;
+    animation-duration: 500ms;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+  }
+
+  .tag-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    min-height: 100px;
+    /* background: red; */
+  }
+
+  .tag-container h1{
+    margin-top: 15px;
+  }
+
+  .tag-container h1 span{
+    color: var(--brandColor);
+  }
+
+  .tag-container div{
+    width: 65px;
+    height: 3px;
+    background: var(--brandColor);
+  }
+
+  .post-container{
+    width: 80vw;
+    margin: auto;
+  }
+
+  .blog-left{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+    margin: 20px 0px;
+    position: relative;
+  }
+
+  .blog-right{
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100%;
+    justify-content: space-around;
+    position: relative;
+  }
+
+  .edit-buttons{
+    position: absolute;
+    display: flex;
+    width: 100px;
+    justify-content: space-between;
+    padding: 10px;
+  }
+  .blog-left .edit-buttons{
+    left: 1%;
+  }
+  .blog-right .edit-buttons{
+    left: 50%;
+  }
+  .edit-buttons button{
+    appearance: none;
+    border:none;
+    background: none;
+  }
+  .edit-buttons button svg,.edit-buttons a svg{
+    fill: white;
+    width: 15px;
+    height: 15px;
+    background:rgba(1,1,1,.7);
+    padding: 14px;
+    /* border-radius: 30%; */
+    /* border: 1px solid white; */
+  }
+
+  .blog-right,.blog-left{
+    border: 1px solid rgba(154, 6, 72,0.5);
+    border-radius: 3px;
+    padding: 10px;
+    height: 300px;
+  }
+
+  .blog-left img , .blog-right img{
+    flex-basis: 49%;
+    height: 300px;
+    object-fit: cover !important;
+    overflow:hidden;
+  }
+
+  .post-date{
+    font-size: 14px;
+    color: grey;
+    align-self: flex-start;
+  }
+
+  .post-info{
+    flex-basis: 49%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  .post-info a{
+    /* color: var(--brandColor); */
+    text-decoration:none;
+  }
+
+
+  .page-container{
+    width: 100%;
+    /* background: red; */
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  .page-container div a{
+    margin: 0px 3px;
+    border: 3px solid var(--brandColor);
+    width: 20px;
+    height: 20px;
+    padding: 1px 9px;
+    border-radius: 50%;
+    transition-property: all;
+    transition-duration: 100ms;
+    transition-timing-function: ease-in;
+  }
+
+  .page-container div a:hover{
+    background: var(--brandColor);
+    border-color: var(--brandColor);
+    color: white;
+  }
+
+  .currentPage{
+    background: var(--brandColor);
+    color: white;
+    border-color: var(--brandColor) !important;
+  }
+  /* Making all blogs page responsive */
+  @media screen and (max-width: 1050px)
+  {
+    .post-container{
+      width: 90vw;
+    }
+  }
+
+  @media screen and (max-width: 900px)
+  {
+    .post-container{
+      width: 95vw;
+    }
+    .blog-left img , .blog-right img{
+      flex-basis: 40%;
+      object-fit: contain !important;
+    }
+  }
+
+  @media screen and (max-width: 800px)
+  {
+    .post-container{
+      width: 70vw;
+    }
+    .post-info{
+      flex-basis: 90%;
+    }
+    .blog-left img , .blog-right img{
+      display: none;
+    }
+    .blog-right,.blog-left{
+      height: auto;
+    }
+  }
+
+  @media screen and (max-width: 650px)
+  {
+    .post-container{
+      width: 90vw;
+      margin: 10px;
+    }
+  }
+
+  @media screen and (max-width: 450px)
+  {
+    .post-info p:nth-of-type(2){
+      display: none;
+    }
+    .post-info a h1{
+      font-size: 17px !important;
+    }
+  }

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Home | sourceCode </title>
+  <link rel="stylesheet" href="/CSS/index.css">
+  <link rel="stylesheet" href="/CSS/App.css">
+  <link rel="stylesheet" href="/CSS/blogs.css">
+  <link rel="stylesheet" href="/CSS/navbar.css">
+  <link rel="stylesheet" href="/CSS/popUp.css">
+
+</head>
+<body>
+  <%- include('./partials/navbar')%>
+  <div class="popUpDiv displayPopUp" id="popUp-Container">
+    <div>
+      <section class="closeSection">
+        <h1>Close me </h1>
+        <svg id="closeBtn" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-octagon" viewBox="0 0 16 16">
+          <path d="M4.54.146A.5.5 0 0 1 4.893 0h6.214a.5.5 0 0 1 .353.146l4.394 4.394a.5.5 0 0 1 .146.353v6.214a.5.5 0 0 1-.146.353l-4.394 4.394a.5.5 0 0 1-.353.146H4.893a.5.5 0 0 1-.353-.146L.146 11.46A.5.5 0 0 1 0 11.107V4.893a.5.5 0 0 1 .146-.353L4.54.146zM5.1 1 1 5.1v5.8L5.1 15h5.8l4.1-4.1V5.1L10.9 1H5.1z"/>
+          <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+        </svg>
+      </section>
+      <div class="google-container">
+        <button><a href="/auth/google/login?page=home"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-google" viewBox="0 0 16 16">
+          <path d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z"/>
+        </svg>Login with Google</a></button>
+      </div>
+    </div>
+  </div>
+  <main class="hero">
+    <section class="news-letter">
+      <h1>Subscribe</h1>
+      <form id="subscribeForm">
+        <div class="field-container">
+            <input id="firstname" type="text" placeholder="Your First name" name="firstname" autocomplete="off">
+            <input id="lastname" type="text" placeholder="Your last name" name="lastname" autocomplete="off">
+            <input id="email" type="text" name="email" autocomplete="off" placeholder="Enter email">
+        </div>
+        <p class="invalid-text-hero">Email is not valid!</p>
+        <p class="success-subscribe-hero">Thank you for signing up ! Please complete the process by confirming the subscription in your email inbox.</p>
+        <p class="failed-subscribe-hero">Something went wrong ! please try again.</p>
+        <button id="subscriberBtn-hero">
+          Subscribe<div class="animate-div"></div></button>
+      </form>
+    </section>
+  </main>
+  <div class="tag-container">
+    <h1>Blog<span> posts</span></h1>
+    <div></div>
+  </div>
+  <div class="post-container">
+    <% blogs.forEach((blog,index)=>{ %>
+      <% if(index%2 == 0){ %>
+        <div class="blog-left">
+          <img src="<%= blog.image %>" alt="<%= blog.title %>">
+          <div class="post-info">
+            <a href="/read/blog/<%= blog._id %>"><h1><%= blog.title %></h1></a>
+            <p class="post-date"><%= blog.date.toString().slice(0,15) %></p>
+            <p><%= blog.description %></p>
+          </div>
+        </div>
+      <% }else{ %>
+        <div class="blog-right">
+          <img src="<%= blog.image %>" alt="<%= blog.title %>">
+          <div class="post-info">
+            <a href="/read/blog/<%= blog._id %>"><h1><%= blog.title %></h1></a>
+            <p class="post-date"><%= blog.date.toString().slice(0,15) %></p>
+            <p><%= blog.description %></p>
+          </div>
+        </div>
+      <% } %>
+    <% }) %>
+  </div>
+  <div class="more-link">
+    <% if(blogs.length > 3){ %>
+      <a href="/all-blog-post/">more...</a>
+    <% } %>
+  </div>
+  <%- include('./partials/footer')%>
+  <script src="/JS/index.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+  <script src="/JS/footerSubscribe.js"></script>
+  <script src="/JS/subscribe.js"></script>
+</body>
+</html>
